@@ -12,9 +12,27 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+                    <!-- Dashboard -->
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <!-- Tasks -->
+                    <x-nav-link :href="route('tasks')" :active="request()->routeIs('tasks')">
+                        {{ __('Tasks') }}
+                    </x-nav-link>
+
+                    <!-- Resources -->
+                    <x-nav-link :href="route('resources')" :active="request()->routeIs('resources')">
+                        {{ __('Resources') }}
+                    </x-nav-link>
+
+                    <!-- Messages -->
+                    <x-nav-link :href="route('messages')" :active="request()->routeIs('messages')">
+                        {{ __('Messages') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
