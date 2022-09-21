@@ -6,9 +6,11 @@
     </x-slot>
 
     <div style="padding-left: 160px; padding-top: 30px">
-        @foreach( $data as $task )
-            <a href='/tasks/view/{{ $task->id }}' >{{ $task -> title }}</a>
-            <br>
-        @endforeach
+        {{ $data->title }}
+        <br>
+        {{ $data->description }}
+
+        <br> <br>
+        <button onclick="location.href='/tasks'"> <b> Back </b> </button>
     </div>
 </x-app-layout>

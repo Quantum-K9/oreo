@@ -27,9 +27,9 @@ Route::middleware(['auth'])->group(function(){
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/tasks', function(){
-        return view('tasks_all', [ 'data' => Task::all() ]);
-    })->name('tasks');
+    // Route::get('/tasks', function(){
+    //     return view('tasks_all', [ 'data' => Task::all() ]);
+    // })->name('tasks');
 
     Route::get('/resources', function(){
         return view('resources_all');
@@ -41,9 +41,5 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
-
-
-
-
-
 require __DIR__.'/auth.php';
+require __DIR__.'/tasks.php';
