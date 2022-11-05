@@ -2,6 +2,7 @@
 
 use App\Models\Task;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Tasks\TaskController;
 
 // authenticate group
 Route::middleware(['auth'])->group(function () {
@@ -11,7 +12,8 @@ Route::middleware(['auth'])->group(function () {
         return view('tasks_all', [ 'data' => Task::all() ]); // send data
     })->name('tasks');
 
-    Route::get('/tasks/view/{task:id}', function( Task $task ){
-        return view('tasks_view', [ 'data' => $task ] ); 
-    });
+    //controller links
+    Route::get('/tasks/view/{id}', [TaskController::class, 'show']);
+    Route::get('/tasks/create', [TaskController::class, 'create']);
+    Route::get('/tasks/complete/{id}', [TaskController::class, 'complete']);
 });

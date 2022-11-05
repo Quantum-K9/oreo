@@ -1,27 +1,40 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tasks;
 
 use App\Models\Task;
+use App\Http\Controllers\Controller;
 
-class CompleteTaskController extends Controller
+class TaskController extends Controller
 {
     /**
-     * Marks a task as completed
-     *
+     * show : displays task
+     * create : bring to 'create task' page
+     * complete : marks task as completed
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
-   
-    public function __invoke( $id ){
+    
+    public function  show( $id ){
+        return view( 'tasks_view', [
+            'data' => Task::findOrFail($id),
+            'message' => null
+        ]);
+    }
 
-        $target = Task::findOrFail( $id );
+    public function create(){
+        return view( 'tasks_create' );
+    }
 
-        $target->completed = true;
-
+    public function complete($id){
+        $target = Task::findOrFail($id);
+        $target->completed = !($target->completed);
         $target->save();
-
-        return view( 'tasks_all' );
+        return view( 'tasks_view', [
+            'data' => Task::findOrFail($id),
+            'message' => "!! Status successfully updated."
+        ]);
     }
 
 }
