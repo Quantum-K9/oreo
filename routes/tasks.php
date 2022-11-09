@@ -12,8 +12,13 @@ Route::middleware(['auth'])->group(function () {
         return view('tasks_all', [ 'data' => Task::all() ]); // send data
     })->name('tasks');
 
+    // create new task route
+    Route::get('/tasks/create', function(){
+        return view('tasks_create');
+    });
+
     //controller links
     Route::get('/tasks/view/{id}', [TaskController::class, 'show']);
-    Route::get('/tasks/create', [TaskController::class, 'create']);
     Route::get('/tasks/complete/{id}', [TaskController::class, 'complete']);
+    Route::post('/tasks/create/done', [TaskController::class, 'create']);
 });

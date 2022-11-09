@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tasks;
 
 use App\Models\Task;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -24,7 +25,15 @@ class TaskController extends Controller
     }
 
     public function create(){
-        return view( 'tasks_create' );
+        DB::table('tasks')->insert([
+            'title' => request()->input('name'),
+            'description' => request()->input('desc'),
+            'due_at' => request()->input('dead'),
+        ]);
+
+        return view( 'tasks_all', [
+            'data' => Task::all()
+        ]);
     }
 
     public function complete($id){

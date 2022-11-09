@@ -9,9 +9,21 @@
         
         New Task <br>
 
-        temporary placeholder here
+        temporary placeholder here <br> <br>
+
+        <form method='POST' action='/tasks/create/done'>
+            @csrf
+            
+            Task Name: <input type='string' name='name'> <br> <br>
+            Task Description: <input type='text' name='desc'> <br> <br>
+            Deadline: <input type='datetime-local' name='dead'> <br><br>
+
+            <button type='submit'> Create! </button>
+
+        </form>
 
         <br> <br>
         <button onclick="location.href='/tasks'"> <b> Back </b> </button>
     </div>
 </x-app-layout>
+
