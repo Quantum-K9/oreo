@@ -30,10 +30,11 @@ class TaskController extends Controller
     public function complete($id){
         $target = Task::findOrFail($id);
         $target->completed = !($target->completed);
+        $target->submitted_at = now();
         $target->save();
         return view( 'tasks_view', [
             'data' => Task::findOrFail($id),
-            'message' => "!! Status successfully updated."
+            'message' => "Status successfully updated."
         ]);
     }
 

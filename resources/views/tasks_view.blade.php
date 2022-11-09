@@ -17,9 +17,12 @@
         {{ $data->description }}
 
         <br>
+        <b>Due: {{ $data->due_at }} </b>
+
+        <br>
         @if( $data->completed )
             <p style="color:darkgreen;"> <b>COMPLETE</b> </p>
-            Completed at: {{ $data->updated_at}}
+            Completed at: {{ $data->submitted_at}}
         @else 
             <p style="color:darkred;"> <b>INCOMPLETE</b> </p>
         @endif

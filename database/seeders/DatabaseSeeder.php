@@ -33,16 +33,19 @@ class DatabaseSeeder extends Seeder
         DB::table('tasks')->insert([
             'title' => 'Task1',
             'description' => 'stuff',
+            'due_at' => '2022-11-10 20:00:00',
         ]);
 
         DB::table('tasks')->insert([
             'title' => 'Task2',
             'description' => 'more stuff',
+            'due_at' => '2022-11-10 18:30:00',
         ]);
 
         DB::table('tasks')->insert([
             'title' => 'Task3.2',
             'description' => 'even more stuff',
+            'due_at' => '2022-11-20 20:00:00',
         ]);
 
     }

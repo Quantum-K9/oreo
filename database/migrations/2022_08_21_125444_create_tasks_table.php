@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('title');
             $table->text('description');
             $table->boolean('completed')->default(false);
+            $table->timestamp('due_at');
+            $table->timestamp('submitted_at')->nullable();
             $table->timestamps();
         });
     }
