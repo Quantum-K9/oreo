@@ -10,8 +10,9 @@ class TaskController extends Controller
 {
     /**
      * show : displays task
-     * create : bring to 'create task' page
+     * create : create a task
      * complete : marks task as completed
+     * delete : delete a task
      * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
@@ -32,7 +33,8 @@ class TaskController extends Controller
         ]);
 
         return view( 'tasks_all', [
-            'data' => Task::all()
+            'data' => Task::all(),
+            'message' => "Task successfully created."
         ]);
     }
 
@@ -44,6 +46,14 @@ class TaskController extends Controller
         return view( 'tasks_view', [
             'data' => Task::findOrFail($id),
             'message' => "Status successfully updated."
+        ]);
+    }
+
+    public function delete($id){
+        DB::table('tasks')->delete($id);
+        return view('tasks_all', [
+            'data' => Task::all(),
+            'message' => "Task successfully deleted."
         ]);
     }
 

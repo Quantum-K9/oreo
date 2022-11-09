@@ -37,6 +37,12 @@
         </b> </button>
 
         <br><br>
+
+        <button onclick="location.href='/tasks/delete/{{$data->id}}'"><b>
+            <p style="color:darkred;"> Delete Task </p>
+        </b></button>
+
+        <br><br>
         <button onclick="location.href='/tasks'"> <b> Back </b> </button>
     </div>
 </x-app-layout>

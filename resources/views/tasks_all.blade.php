@@ -6,6 +6,12 @@
     </x-slot>
 
     <div style="padding-left: 160px; padding-top: 30px">
+
+        @if( !is_null($message) )
+            <b> {{ $message }} </b>
+            <br> <br>
+        @endif
+        
         @foreach( $data as $task )
             <a href='/tasks/view/{{ $task->id }}' >{{ $task -> title }}</a>
             <br>

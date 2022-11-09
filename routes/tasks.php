@@ -9,7 +9,7 @@ Route::middleware(['auth'])->group(function () {
 
     // view all route
     Route::get('/tasks', function(){
-        return view('tasks_all', [ 'data' => Task::all() ]); // send data
+        return view('tasks_all', [ 'data' => Task::all(), 'message' => null ]); // send data
     })->name('tasks');
 
     // create new task route
@@ -20,5 +20,6 @@ Route::middleware(['auth'])->group(function () {
     //controller links
     Route::get('/tasks/view/{id}', [TaskController::class, 'show']);
     Route::get('/tasks/complete/{id}', [TaskController::class, 'complete']);
+    Route::get('/tasks/delete/{id}', [TaskController::class, 'delete']);
     Route::post('/tasks/create/done', [TaskController::class, 'create']);
 });
