@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('css/globalstyles.css') }}">
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -8,7 +10,7 @@
     <div style="padding-left: 160px; padding-top: 30px">
 
         @if( !is_null($message) )
-            <b> {{ $message }} </b>
+            <h class="notif"> <b> <h style="color: darkblue"> ⓘ </h> {{ $message }} </b> </h>
             <br> <br>
         @endif
         
@@ -19,5 +21,6 @@
 
         <br><br>
         <button> <a href="/tasks/create" > <b> New Task </b> </a> </button>
+
     </div>
 </x-app-layout>

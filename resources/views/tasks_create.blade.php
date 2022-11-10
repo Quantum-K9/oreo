@@ -6,7 +6,7 @@
     </x-slot>
 
     <div style="padding-left: 160px; padding-top: 30px">
-        
+
         New Task <br>
 
         temporary placeholder here <br> <br>

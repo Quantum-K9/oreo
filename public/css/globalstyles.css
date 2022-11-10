@@ -1,0 +1,17 @@
+.notif{
+        background-color: #FFE9B9;
+        border: 1;
+        font-size: 15px;
+        padding: 10px 27px;
+}
+
+.button{
+        border: 1;
+        color: white;
+        padding: 10px 27px;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        margin: 4px 2px;
+        cursor: pointer;
+}

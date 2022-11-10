@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('css/globalstyles.css') }}">
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -8,15 +10,15 @@
     <div style="padding-left: 160px; padding-top: 30px">
 
         @if( !is_null($message) )
-            <b> {{ $message }} </b>
-            <br> <br>
+            <h class="notif"> <b> <h style="color: darkblue"> ⓘ </h> {{ $message }} </b> </h>
+            <br> <br> <br>
         @endif
 
-        {{ $data->title }}
+        <h1 style="font-size:20px"><b>{{ $data->title }}</b></h1>
         <br>
         {{ $data->description }}
 
-        <br>
+        <br><br><br>
         <b>Due: {{ $data->due_at }} </b>
 
         <br>
@@ -28,18 +30,16 @@
         @endif
 
         <br> <br>
-        <button onclick="location.href='/tasks/complete/{{$data->id}}'"> <b> 
+        <button class="button" style="background-color:darkcyan" onclick="location.href='/tasks/complete/{{$data->id}}'"> <b> 
             @if( $data->completed )
-                Mark as Incomplete
+                Mark as Incomplete </h>
             @else
                 Mark as Complete
             @endif
         </b> </button>
 
-        <br><br>
-
-        <button onclick="location.href='/tasks/delete/{{$data->id}}'"><b>
-            <p style="color:darkred;"> Delete Task </p>
+        <button class="button" style="background-color: darkred" onclick="location.href='/tasks/delete/{{$data->id}}'"><b>
+            Delete Task
         </b></button>
 
         <br><br>
