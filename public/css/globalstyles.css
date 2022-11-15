@@ -12,6 +12,18 @@
         text-align: center;
         display: inline-block;
         font-size: 15px;
-        margin: 4px 2px;
+        margin: 4px 0px;
         cursor: pointer;
+        border-radius: 8px;
+}
+
+.taskItem {
+  border-style: solid;
+  border-color: black;
+  padding: 10px 15px;
+  font-size: 15px;
+  background-color: #DBE9F4;
+  border-radius: 15px;
+  margin-left: 5px;
+  line-height: 24px;
 }

@@ -7,7 +7,7 @@
         </h2>
     </x-slot>
 
-    <div style="padding-left: 160px; padding-top: 30px">
+    <div style="padding-left: 160px; padding-right: 160px; padding-top: 30px">
 
         @if( !is_null($message) )
             <h class="notif"> <b> <h style="color: darkblue"> ⓘ </h> {{ $message }} </b> </h>
@@ -15,12 +15,27 @@
         @endif
         
         @foreach( $data as $task )
-            <a href='/tasks/view/{{ $task->id }}' >{{ $task -> title }}</a>
+            <div class="taskItem">
+                <b><u> <a style="font-size: 18px" href='/tasks/view/{{ $task->id }}' >{{ $task -> title }}</a> </u> </b>
+                <br>
+                <i> Due: {{ $task->due_at }} </i>
+
+                @if( $task->completed )
+                    &nbsp; &nbsp; <b> <h style="color:#006400"> Done! </h> </b>
+                @elseif( $timee > $task->due_at )
+                    &nbsp; &nbsp; <b> <h style="color:#B90E0A"> Overdue! </h> </b>
+                @endif
+
+                <br>
+
+            </div>
             <br>
         @endforeach
 
         <br><br>
-        <button> <a href="/tasks/create" > <b> New Task </b> </a> </button>
+        <button class="button" style="background-color: green" onclick="location.href='/tasks/create'">
+            <b> New Task </b> 
+        </button>
 
     </div>
 </x-app-layout>

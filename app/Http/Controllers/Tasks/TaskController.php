@@ -33,8 +33,9 @@ class TaskController extends Controller
         ]);
 
         return view( 'tasks_all', [
-            'data' => Task::all(),
-            'message' => "Task successfully created."
+            'data' => Task::orderBy('due_at')->get(),
+            'message' => "Task successfully created.",
+            'timee' => now(),
         ]);
     }
 
@@ -52,8 +53,9 @@ class TaskController extends Controller
     public function delete($id){
         DB::table('tasks')->delete($id);
         return view('tasks_all', [
-            'data' => Task::all(),
-            'message' => "Task successfully deleted."
+            'data' => Task::orderBy('due_at')->get(),
+            'message' => "Task successfully deleted.",
+            'timee' => now(),
         ]);
     }
 
