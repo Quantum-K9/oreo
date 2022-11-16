@@ -18,6 +18,9 @@
             <button class="taskItem" onclick="location.href='/tasks/view/{{$task->id}}'">
                 <b> <a style="font-size: 18px">{{ $task -> title }} </a> </b>
                 <br>
+                <i> {{$task->subject->name}} </i>
+
+                <br><br>
                 <i> Due: {{ $task->due_at }} </i>
 
                 @if( $task->completed )

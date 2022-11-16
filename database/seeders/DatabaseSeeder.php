@@ -30,21 +30,37 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make("Admin123456"),
         ]);
 
+        DB::table('subjects')->insert([
+            'name' => "Mathematics",
+        ]);
+        DB::table('subjects')->insert([
+            'name' => "Science",
+        ]);
+        DB::table('subjects')->insert([
+            'name' => "English",
+        ]);
+        DB::table('subjects')->insert([
+            'name' => "Social Studies",
+        ]);
+
         DB::table('tasks')->insert([
             'title' => 'Task1',
             'description' => 'stuff',
+            'subject_id' => 1,
             'due_at' => '2022-11-10 20:00:00',
         ]);
 
         DB::table('tasks')->insert([
             'title' => 'Task2',
             'description' => 'more stuff',
+            'subject_id' => 3,
             'due_at' => '2022-11-10 18:30:00',
         ]);
 
         DB::table('tasks')->insert([
             'title' => 'Task3.2',
             'description' => 'even more stuff',
+            'subject_id' => 4,
             'due_at' => '2022-11-20 20:00:00',
         ]);
 

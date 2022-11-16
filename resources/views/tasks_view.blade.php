@@ -15,7 +15,9 @@
         @endif
 
         <h1 style="font-size:20px"><b>{{ $data->title }}</b></h1>
-        <br>
+        {{ $data->subject->name }}
+
+        <br> <br>
         {{ $data->description }}
 
         <br><br><br>
