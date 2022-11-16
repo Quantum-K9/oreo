@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('css/globalstyles.css') }}">
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -5,20 +7,19 @@
         </h2>
     </x-slot>
 
-    <div style="padding-left: 160px; padding-top: 30px">
+    <div style="padding-left: 170px; padding-right: 160px; padding-top: 30px">
 
-        New Task <br>
+        <b> <h style="font-size: 22px;"> Create a New Task: </h> </b> <br> <br>
 
-        temporary placeholder here <br> <br>
+        <form class="formChunk" method='POST' action='/tasks/create/done'>
 
-        <form method='POST' action='/tasks/create/done'>
             @csrf
             
             Task Name: <input type='string' name='name'> <br> <br>
             Task Description: <input type='text' name='desc'> <br> <br>
             Deadline: <input type='datetime-local' name='dead'> <br><br>
 
-            <button type='submit'> Create! </button>
+            <button class="button" style="background-color: #2E5984" type='submit'> <b> Create! </b> </button>
 
         </form>
 

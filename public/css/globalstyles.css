@@ -3,6 +3,7 @@
         border: 1;
         font-size: 15px;
         padding: 10px 27px;
+        border-radius: 8px;
 }
 
 .button{
@@ -18,12 +19,27 @@
 }
 
 .taskItem {
+  text-align: left;
+  display: block;
+  width: 100%;
   border-style: solid;
   border-color: black;
   padding: 10px 15px;
   font-size: 15px;
   background-color: #DBE9F4;
   border-radius: 15px;
-  margin-left: 5px;
+  line-height: 24px;
+}
+
+.formChunk{
+  text-align: left;
+  display: block;
+  width: 100%;
+  border-style: solid;
+  border-color: black;
+  padding: 25px 25px;
+  font-size: 15px;
+  background-color: #9DD9F3;
+  border-radius: 15px;
   line-height: 24px;
 }

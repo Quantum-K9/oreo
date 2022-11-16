@@ -43,6 +43,6 @@
         </b></button>
 
         <br><br>
-        <button onclick="location.href='/tasks'"> <b> Back </b> </button>
+        <button class="button" style="background-color: grey" onclick="location.href='/tasks'"> <b> Back </b> </button>
     </div>
 </x-app-layout>
