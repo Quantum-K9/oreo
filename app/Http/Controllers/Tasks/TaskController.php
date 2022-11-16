@@ -29,6 +29,7 @@ class TaskController extends Controller
         DB::table('tasks')->insert([
             'title' => request()->input('name'),
             'description' => request()->input('desc'),
+            'subject_id' => request()->input('subj'),
             'due_at' => request()->input('dead'),
         ]);
 

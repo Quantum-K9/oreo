@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Task;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tasks\TaskController;
 
@@ -16,9 +17,22 @@ Route::middleware(['auth'])->group(function () {
     ]); // send data
     })->name('tasks');
 
+    Route::get('/tasks/filter/{slug}', function( $slug ){
+
+        $sid = Subject::where( 'slug', $slug )->first()->id;
+
+        return view( 'tasks_all',[
+            'data' => Task::where('subject_id', $sid)->orderBy('due_at')->get(),
+            'message' => null,
+            'timee' => now(),
+        ]);
+    });
+
     // create new task route
     Route::get('/tasks/create', function(){
-        return view('tasks_create');
+        return view('tasks_create', [
+            'subjs' => Subject::all(),
+        ]);
     });
 
     //controller links

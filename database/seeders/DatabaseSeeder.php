@@ -32,15 +32,19 @@ class DatabaseSeeder extends Seeder
 
         DB::table('subjects')->insert([
             'name' => "Mathematics",
+            'slug' => "mathematics",
         ]);
         DB::table('subjects')->insert([
             'name' => "Science",
+            'slug' => "science",
         ]);
         DB::table('subjects')->insert([
             'name' => "English",
+            'slug' => "english",
         ]);
         DB::table('subjects')->insert([
             'name' => "Social Studies",
+            'slug' => "social-studies",
         ]);
 
         DB::table('tasks')->insert([

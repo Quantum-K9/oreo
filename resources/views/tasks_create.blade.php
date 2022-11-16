@@ -17,6 +17,12 @@
             
             Task Name: <input type='string' name='name'> <br> <br>
             Task Description: <input type='text' name='desc'> <br> <br>
+            Subject: <select name='subj'>
+                @foreach( $subjs as $subj )
+                    <option value={{$subj->id}}> {{$subj->name}} </option>
+                @endforeach
+            </select>
+            <br><br>
             Deadline: <input type='datetime-local' name='dead'> <br><br>
 
             <button class="button" style="background-color: #2E5984" type='submit'> <b> Create! </b> </button>

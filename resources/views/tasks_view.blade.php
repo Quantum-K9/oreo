@@ -40,9 +40,9 @@
             @endif
         </b> </button>
 
-        <button class="button" style="background-color: darkred" onclick="location.href='/tasks/delete/{{$data->id}}'"><b>
-            Delete Task
-        </b></button>
+        <button class="button" style="background-color: darkred" oncliCK="location.href='/tasks/delete/{{$data->id}}'">
+            <b> Delete Task </b>
+        </button>
 
         <br><br>
         <button class="button" style="background-color: grey" onclick="location.href='/tasks'"> <b> Back </b> </button>

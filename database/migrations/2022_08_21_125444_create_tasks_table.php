@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->text('slug');
         });
 
         Schema::create('tasks', function (Blueprint $table) {

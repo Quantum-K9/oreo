@@ -40,5 +40,18 @@
             <b> New Task </b> 
         </button>
 
+        <br><br><br>
+        <b> Filter by Subject: <br> </b>
+
+        <?php
+            $subjects = \App\Models\Subject::all();
+        ?>
+
+        @foreach( $subjects as $subject )
+            <a href = '/tasks/filter/{{ $subject->slug }}' > {{ $subject->name }}  <br> </a>
+        @endforeach
+
+        <br> <br>
+
     </div>
 </x-app-layout>
