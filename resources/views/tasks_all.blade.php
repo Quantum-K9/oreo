@@ -10,8 +10,10 @@
     <div style="padding-left: 170px; padding-right: 160px; padding-top: 30px">
 
         @if( !is_null($message) )
+        @if( $message[0] != '!' )
             <h class="notif"> <b> <h style="color: darkblue"> ⓘ </h> {{ $message }} </b> </h>
             <br> <br>
+        @endif
         @endif
         
         @foreach( $data as $task )
@@ -41,15 +43,33 @@
         </button>
 
         <br><br><br>
-        <b> Filter by Subject: <br> </b>
+        <b> FILTER BY SUBJECT: <br> </b>
 
         <?php
             $subjects = \App\Models\Subject::all();
         ?>
 
         @foreach( $subjects as $subject )
+
+            @if( !is_null($message) ) @if( $message[0] == '!' ) @if( substr( $message, 1 ) == $subject->slug )
+                <b>
+            @endif @endif @endif
+
             <a href = '/tasks/filter/{{ $subject->slug }}' > {{ $subject->name }}  <br> </a>
+
+            @if( !is_null($message) ) @if( $message[0] == '!' ) @if( substr( $message, 1 ) == $subject->slug )
+                </b>
+            @endif @endif @endif
+
         @endforeach
+
+        <br>
+
+        @if( !is_null($message) )
+        @if( $message[0] == '!' )
+            <a href = '/tasks' > <b> Clear Filters </b> <br> </a>
+        @endif
+        @endif
 
         <br> <br>
 

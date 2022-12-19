@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
 
         return view( 'tasks_all',[
             'data' => Task::where('subject_id', $sid)->orderBy('due_at')->get(),
-            'message' => null,
+            'message' => '!'.$slug,
             'timee' => now(),
         ]);
     });
