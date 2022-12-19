@@ -32,9 +32,25 @@
         @endif
 
         <br> <br>
+        <?php
+            $display_files = \App\Models\File_task_pivot::all();
+        ?>
+
+        @foreach( $display_files as $d )
+            <b> {{$d->file_id}} </b> <br>
+        @endforeach
+
+        <br> <br>
+
+        @if( !$data->completed)
+            <button class="button" style="background-color:#28B463" onclick="location.href='/tasks/upload/{{$data->id}}'"> <b> 
+                Upload File
+            </b> </button>
+        @endif
+
         <button class="button" style="background-color:darkcyan" onclick="location.href='/tasks/complete/{{$data->id}}'"> <b> 
             @if( $data->completed )
-                Mark as Incomplete </h>
+                Mark as Incomplete
             @else
                 Mark as Complete
             @endif

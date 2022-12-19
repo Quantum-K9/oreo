@@ -46,5 +46,13 @@ Route::middleware(['auth'])->group(function () {
     //controller links
     Route::get('/tasks/view/{id}', [TaskController::class, 'show']);
     Route::get('/tasks/complete/{id}', [TaskController::class, 'complete']);
+    Route::post('/tasks/uploading/{id}', [TaskController::class, 'file_upload']);
+
+    Route::get('/tasks/upload/{id}', function( $id ){
+        $task = Task::findOrFail($id);
+        return view('tasks_file_upload',[
+            'data'=> $task,
+        ]);    
+    });
     
 });

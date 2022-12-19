@@ -22,7 +22,7 @@ return new class extends Migration
 
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
+            $table->tinytext('title');
             $table->text('description');
             $table->foreignId('subject_id')->constrained();
             $table->boolean('completed')->default(false);
@@ -31,7 +31,21 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        
+        Schema::create('files', function (Blueprint $table) {
+            $table->id();
+            $table->tinytext('file_name')->nullable();
+            $table->text('url');
+            $table->foreignId('owner_id')->references('id')->on('users')->constrained();
+            $table->timestamps();
+        });
+
+        Schema::create('file_task_pivots', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('task_id')->constrained();
+            $table->foreignId('file_id')->constrained();
+            $table->timestamps();
+        });
+
     }
 
     /**

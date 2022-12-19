@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Tasks;
 use App\Models\Task;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\File;
 
 class TaskController extends Controller
 {
@@ -57,6 +59,32 @@ class TaskController extends Controller
             'data' => Task::orderBy('due_at')->get(),
             'message' => "Task successfully deleted.",
             'timee' => now(),
+        ]);
+    }
+
+    public function file_upload($id){
+
+        // create a file instance and save to directory
+        $path = request()->upload->store('task_uploads');
+
+        $new_file = new \App\Models\File();
+        $new_file->file_name = "temp";
+        $new_file->url = $path;
+        $new_file->owner_id = \Auth::id();
+        $new_file->save();
+
+        // create a ftpivot instance for future references
+        $new_pivot = new \App\Models\File_task_pivot();
+        $new_pivot->task_id = $id;
+        $new_pivot->file_id = $new_file->id;
+        $new_pivot->save();
+
+        //dd($new_pivot);
+        
+        // then afterward: refect uploaded files on task_view.blade.php
+        return view('tasks_view', [
+            'data' => Task::findOrFail($id),
+            'message' => "File successfully uploaded.",
         ]);
     }
 
