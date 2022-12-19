@@ -1,4 +1,4 @@
-- edit seeder data
-- after create task present task page issue
-- delete task confirmation message
-- better way to filter?
+- delete test seeder
+- modify permission seeder
+- after create task, present task page -- ?
+- improve filtering?

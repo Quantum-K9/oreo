@@ -40,9 +40,11 @@
             @endif
         </b> </button>
 
-        <button class="button" style="background-color: darkred" oncliCK="location.href='/tasks/delete/{{$data->id}}'">
-            <b> Delete Task </b>
-        </button>
+        @can('delete task')
+            <button class="button" style="background-color: darkred" oncliCK="location.href='/tasks/delete/{{$data->id}}'">
+                <b> Delete Task </b>
+            </button>
+        @endcan
 
         <br><br>
         <button class="button" style="background-color: grey" onclick="location.href='/tasks'"> <b> Back </b> </button>

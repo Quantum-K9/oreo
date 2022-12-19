@@ -37,12 +37,13 @@
             <br>
         @endforeach
 
-        <br>
-        <button class="button" style="background-color: green" onclick="location.href='/tasks/create'">
-            <b> New Task </b> 
-        </button>
+        @can('create task')
+            <br><button class="button" style="background-color: green" onclick="location.href='/tasks/create'">
+                <b> New Task </b> 
+            </button><br>
+        @endcan
 
-        <br><br><br>
+        <br>
         <b> FILTER BY SUBJECT: <br> </b>
 
         <?php
