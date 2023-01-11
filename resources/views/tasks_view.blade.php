@@ -33,12 +33,26 @@
 
         <br> <br>
         <?php
-            $display_files = \App\Models\File_task_pivot::all();
+            $display_files = \App\Models\File_task::all();
         ?>
 
-        @foreach( $display_files as $d )
-            <b> {{$d->file_id}} </b> <br>
+        <b> Submitted Files: </b> <br>
+
+        @foreach( $display_files as $filee )
+
+            @if( $filee->task_id == $data->id )
+
+                <?php 
+                    $realfile = App\Models\File::findOrFail( $filee->file_id );
+                ?>
+
+                <a href="/viewfile/{{$realfile->id}}"> {{ $realfile->file_name }} </a>
+                <br>
+
+            @endif
         @endforeach
+
+
 
         <br> <br>
 

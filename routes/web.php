@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Task;
+use App\Models\File;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,4 @@ Route::middleware(['auth'])->group(function(){
 
 require __DIR__.'/auth.php';
 require __DIR__.'/tasks.php';
+require __DIR__.'/files.php';

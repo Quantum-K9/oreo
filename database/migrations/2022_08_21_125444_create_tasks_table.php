@@ -39,7 +39,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('file_task_pivots', function (Blueprint $table) {
+        Schema::create('file_tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('task_id')->constrained();
             $table->foreignId('file_id')->constrained();

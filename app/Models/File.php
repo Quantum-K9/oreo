@@ -12,4 +12,8 @@ class File extends Model
     public function owner(){
         return $this->belongsTo(User::class);
     }
+
+    public function task(){
+        return $this->belongsToMany(Task::class);
+    }
 }

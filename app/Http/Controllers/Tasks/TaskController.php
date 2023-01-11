@@ -65,21 +65,21 @@ class TaskController extends Controller
     public function file_upload($id){
 
         // create a file instance and save to directory
-        $path = request()->upload->store('task_uploads');
+        $raw_file = request()->upload;
+        $path = $raw_file->storeAs('task_uploads', $raw_file->getClientOriginalName() );
 
+        // create a save file
         $new_file = new \App\Models\File();
-        $new_file->file_name = "temp";
+        $new_file->file_name = $raw_file->getClientOriginalName();
         $new_file->url = $path;
         $new_file->owner_id = \Auth::id();
         $new_file->save();
 
         // create a ftpivot instance for future references
-        $new_pivot = new \App\Models\File_task_pivot();
+        $new_pivot = new \App\Models\File_task();
         $new_pivot->task_id = $id;
         $new_pivot->file_id = $new_file->id;
         $new_pivot->save();
-
-        //dd($new_pivot);
         
         // then afterward: refect uploaded files on task_view.blade.php
         return view('tasks_view', [
