@@ -33,10 +33,14 @@
 
         <br> <br>
         <?php
-            $display_files = \App\Models\File_task::all();
+            $display_files = \App\Models\File_task::where('task_id', '=', $data->id)->get();
         ?>
 
-        <b> Submitted Files: </b> <br>
+        @if( $display_files->count() != 0 )
+            <b> Submitted Files: </b> <br>
+        @else
+            <b> Nothing submitted yet. </b> <br>
+        @endif
 
         @foreach( $display_files as $filee )
 
