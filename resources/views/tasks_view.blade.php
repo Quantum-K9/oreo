@@ -50,7 +50,18 @@
                     $realfile = App\Models\File::findOrFail( $filee->file_id );
                 ?>
 
-                <a href="/viewfile/{{$realfile->id}}"> {{ $realfile->file_name }} </a>
+                <a href="/viewfile/{{$realfile->id}}"> {{ $realfile->file_name }} </a> 
+
+                <button class="button" style="background-color: steelblue" onclick="location.href='/viewfile/{{$realfile->id}}'">
+                    <b> Download File </b>
+                </button>
+                
+                @if( !$data->completed)
+                    <button class="button" style="background-color: darkred" onclick="location.href='/deletetaskfile/{{$data->id}}/{{$realfile->id}}'" >
+                        <b> Delete File </b>
+                    </button>
+                @endif
+
                 <br>
 
             @endif
