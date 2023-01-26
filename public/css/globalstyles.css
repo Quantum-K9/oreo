@@ -31,6 +31,19 @@
   line-height: 24px;
 }
 
+.resourceItem {
+  text-align: left;
+  display: block;
+  width: 100%;
+  border-style: solid;
+  border-color: black;
+  padding: 10px 15px;
+  font-size: 15px;
+  background-color: #Ab80fa;
+  border-radius: 15px;
+  line-height: 24px;
+}
+
 .formChunk{
   text-align: left;
   display: block;

@@ -38,5 +38,12 @@ class TestSeeder extends Seeder
             'due_at' => '2022-11-20 20:00:00',
         ]);
 
+        DB::table('resources')->insert([
+            'title' => 'YouTube video',
+            'resource_type' => false,
+            'url' => "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            'owner_id' => 1,
+        ]);
+
     }
 }

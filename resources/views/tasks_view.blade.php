@@ -50,7 +50,7 @@
                     $realfile = App\Models\File::findOrFail( $filee->file_id );
                 ?>
 
-                <a href="/viewfile/{{$realfile->id}}"> {{ $realfile->file_name }} </a> 
+                {{ $realfile->file_name }}
 
                 <button class="button" style="background-color: steelblue" onclick="location.href='/viewfile/{{$realfile->id}}'">
                     <b> Download File </b>

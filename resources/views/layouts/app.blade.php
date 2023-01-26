@@ -26,7 +26,9 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div style="background-color: whitesmoke;">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
     </body>

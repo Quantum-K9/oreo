@@ -28,10 +28,6 @@ Route::middleware(['auth'])->group(function(){
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/resources', function(){
-        return view('resources_all');
-    })->name('resources');
-
     Route::get('/messages', function(){
         return view('messages_all');
     })->name('messages');
@@ -41,3 +37,4 @@ Route::middleware(['auth'])->group(function(){
 require __DIR__.'/auth.php';
 require __DIR__.'/tasks.php';
 require __DIR__.'/files.php';
+require __DIR__.'/resources.php';
