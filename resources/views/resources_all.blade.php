@@ -7,19 +7,42 @@
         </h2>
     </x-slot>
 
-    <div style="padding-left: 160px; padding-top: 30px">
+    <div class="stdDiv">
         
         @foreach( $data as $resource )
 
-            <button class="resourceItem" onclick="location.href='{{$resource->url}}'">
+            <!-- resource is an stored file -->
+            @if ( $resource->resource_type ) 
 
-                <b> <a style="font-size: 18px">{{ $resource->title  }} </a> </b>
+                <button class="resourceItem" onclick="location.href='{{$resource->url}}'">
+
+                    <a style="font-size: 15px"> File </a> <br>
+                    <b> <a style="font-size: 18px">{{ $resource->title  }} </a> </b>
         
-            </button>
+                </button>
+
+            <!-- resource is an external link -->
+            @else
+
+                <button class="resourceItem" onclick="location.href='{{$resource->url}}'">
+
+                    <a style="font-size: 15px"> Link </a> <br>
+                    <b> <a style="font-size: 18px">{{ $resource->title  }} </a> </b>
+        
+                </button>
+
+            @endif
 
             <br>
 
+
         @endforeach
+
+        @can('create resource')
+            <br><button class="button" style="background-color: green" onclick="location.href='/resources/create'">
+                <b> Add Resource </b> 
+            </button><br>
+        @endcan
 
     </div>
 </x-app-layout>

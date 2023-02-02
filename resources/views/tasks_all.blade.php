@@ -7,7 +7,7 @@
         </h2>
     </x-slot>
 
-    <div style="padding-left: 170px; padding-right: 160px; padding-top: 30px">
+    <div class="stdDiv">
 
         @if( !is_null($message) )
         @if( $message[0] != '!' )

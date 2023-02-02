@@ -18,6 +18,13 @@
         border-radius: 8px;
 }
 
+.stdDiv{
+  padding-left: 170px; 
+  padding-right: 160px; 
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 .taskItem {
   text-align: left;
   display: block;
