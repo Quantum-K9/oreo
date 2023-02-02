@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Resource;
+use App\Http\Controllers\Resources\ResourceController;
 
 // authenticate before allowing access
 Route::middleware(['auth'])->group(function () {

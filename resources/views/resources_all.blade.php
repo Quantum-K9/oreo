@@ -14,7 +14,7 @@
             <!-- resource is an stored file -->
             @if ( $resource->resource_type ) 
 
-                <button class="resourceItem" onclick="location.href='{{$resource->url}}'">
+                <button class="resourceItem" onclick="location.href='/viewfile/{{$resource->file_id}}'">
 
                     <a style="font-size: 15px"> File </a> <br>
                     <b> <a style="font-size: 18px">{{ $resource->title  }} </a> </b>
