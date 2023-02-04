@@ -11,30 +11,54 @@
         
         @foreach( $data as $resource )
 
-            <!-- resource is an stored file -->
-            @if ( $resource->resource_type ) 
+            <div class="resourceItem">
 
-                <button class="resourceItem" onclick="location.href='/viewfile/{{$resource->file_id}}'">
+                <a style="font-size: 15px"> 
+                    @if( $resource->resource_type )
+                        File
+                    @else
+                        Link
+                    @endif
+                </a> <br>
+                    
 
-                    <a style="font-size: 15px"> File </a> <br>
-                    <b> <a style="font-size: 18px">{{ $resource->title  }} </a> </b>
+                <table style="display:block">
+                    <tr>
+
+                        <td style="width:90%"> 
+                            <b> <a style="font-size: 18px"> {{ $resource->title  }} </a> </b> 
+                        </td>
+
+                        <td style="width:10%;" align="left">
+
+                            @can('delete resource')
+                                <button class="button" style="background-color: darkred;" onclick="location.href='/deleteresource/{{ $resource->id }}'">
+                                    <b> Delete Resource </b>
+                                </button>
+                            @endcan
+
+                            @if( $resource->resource_type )
+                                <button class="button" style="background-color:#80faab; color:black;" onclick="location.href='/viewfile/{{$resource->file_id}}'">
+
+                                    <b> Download File </b>
+                                </button>
+
+                            @else
+                                <button class="button" style="background-color:#80faab; color:black;" onclick="location.href='{{$resource->url}}'">
+
+                                    <b> Follow Link </b>
+                                </button>
+                            
+                            @endif
+
+                        </td>
+
+                    </tr>
+                </table>
         
-                </button>
-
-            <!-- resource is an external link -->
-            @else
-
-                <button class="resourceItem" onclick="location.href='{{$resource->url}}'">
-
-                    <a style="font-size: 15px"> Link </a> <br>
-                    <b> <a style="font-size: 18px">{{ $resource->title  }} </a> </b>
-        
-                </button>
-
-            @endif
+            </div>
 
             <br>
-
 
         @endforeach
 

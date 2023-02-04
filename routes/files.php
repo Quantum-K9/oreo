@@ -15,10 +15,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/deletetaskfile/{tid}/{fid}', function( $tid, $fid ){
 
-        // delete the file
+        // locate the file
         $file = File::findOrFail( $fid );
+
+        // delete all file-task relations
         App\Models\File_task::where( 'file_id', '=', $fid )->delete();
+
+        // delete the actual file
         Storage::delete( $file->url );
+
+        // delete the file model
+        $file->delete();
 
         // obtain original task and redirect
         return view('tasks_view', [

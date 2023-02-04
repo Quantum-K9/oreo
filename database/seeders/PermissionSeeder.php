@@ -26,11 +26,13 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'create task']);
         Permission::create(['name' => 'delete task']);
         Permission::create(['name' => 'create resource']);
+        Permission::create(['name' => 'delete resource']);
 
         $parent_role = Role::create(['name' => 'parent']);
         $parent_role->givePermissionTo('create task');
         $parent_role->givePermissionTo('delete task');
         $parent_role->givePermissionTo('create resource');
+        $parent_role->givePermissionTo('delete resource');
 
         $child_role = Role::create(['name' => 'child']);
 
