@@ -21,6 +21,12 @@
             <input type="radio" name="type" value=true> File &nbsp;
             <input type="radio" name="type" value=false> Link <br> <br>
 
+            Subject: <select name='subj'>
+                @foreach( $subjs as $subj )
+                    <option value={{$subj->id}}> {{$subj->name}} </option>
+                @endforeach
+            </select> <br> <br>
+
             Link: <input type='string' name='link'> <br> <br>
 
             <input type="file" name="upload" id="upload"> <br> <br>

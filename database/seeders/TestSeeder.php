@@ -41,6 +41,7 @@ class TestSeeder extends Seeder
         DB::table('resources')->insert([
             'title' => 'YouTube video',
             'resource_type' => false,
+            'subject_id' => 2,
             'url' => "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
             'owner_id' => 1,
         ]);

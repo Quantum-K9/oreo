@@ -10,7 +10,9 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => ['role:parent']], function(){
 
         Route::get('/resources/create', function(){
-            return view( 'resources_create' );
+            return view( 'resources_create',[
+                'subjs' => App\Models\Subject::all(),
+            ]);
         });
 
         Route::get('/deleteresource/{rid}', function( $rid ){

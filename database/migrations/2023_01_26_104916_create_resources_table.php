@@ -18,6 +18,7 @@ return new class extends Migration
             $table->tinytext('title');
             $table->boolean('resource_type');
             $table->string('url')->nullable();
+            $table->foreignId('subject_id')->constrained();
             $table->foreignId('file_id')->nullable()->constrained();
             $table->foreignId('owner_id')->references('id')->on('users')->constrained();
             $table->timestamps();

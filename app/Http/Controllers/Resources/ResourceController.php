@@ -37,6 +37,7 @@ class ResourceController extends Controller
             DB::table('resources')->insert([
                 'title' => request()->input('name'),
                 'resource_type'=> true,
+                'subject_id' => request()->input('subj'),
                 'file_id'=> $new_file->id,
                 'owner_id' => \Auth::id()
             ]);
@@ -47,6 +48,7 @@ class ResourceController extends Controller
             DB::table('resources')->insert([
                 'title' => request()->input('name'),
                 'resource_type'=> false,
+                'subject_id' => request()->input('subj'),
                 'url' => request()->input('link'),
                 'owner_id' => \Auth::id()
             ]);

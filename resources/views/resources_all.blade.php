@@ -14,11 +14,19 @@
             <div class="resourceItem">
 
                 <a style="font-size: 15px"> 
-                    @if( $resource->resource_type )
-                        File
-                    @else
-                        Link
-                    @endif
+                    <b>
+                        @if( $resource->resource_type )
+                            File
+                        @else
+                            Link
+                        @endif
+
+                        - 
+
+                        {{ $resource->subject->name }}
+
+                    </b>
+                    
                 </a> <br>
                     
 
